@@ -1,0 +1,40 @@
+{
+  "name": "edgeapiservernode",
+  "version": "2.0.0",
+  "description": "Edgewords demo REST API server ported to Node.js and TypeScript",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "dist/server.js",
+  "bin": {
+    "startserver": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "Assets",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "dev": "tsx src/cli.ts",
+    "prepare": "npm run build",
+    "start": "node dist/cli.js",
+    "test": "npm run build && node --test dist/**/*.test.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.2.5",
+    "fastify": "^5.0.0",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^24.0.0",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  }
+}
