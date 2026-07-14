@@ -2,7 +2,7 @@
 node_modules/
 
 # build output
-dist/
+# dist/ is intentionally committed so Git installs can run without a build step.
 
 # environment files
 .env

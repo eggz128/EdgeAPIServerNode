@@ -9,7 +9,7 @@ Simple REST API demo server ported from the original C# self-hosted version.
 ## Install from GitHub
 
 ```bash
-npm install <githuburl>
+npm install https://github.com/eggz128/EdgeAPIServerNode.git
 ```
 
 This package exposes a CLI command named `startserver`.
@@ -97,3 +97,7 @@ Build and run compiled output:
 npm run build
 npm run start
 ```
+
+## Maintainer note
+
+This repo intentionally commits `dist/` so Git installs are runnable without install-time build scripts. If you change files in `src/`, run `npm run build` before committing.

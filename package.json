@@ -21,7 +21,7 @@
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
     "dev": "tsx src/cli.ts",
-    "prepare": "npm run build",
+    "prepack": "npm run build",
     "start": "node dist/cli.js",
     "test": "npm run build && node --test dist/**/*.test.js"
   },
