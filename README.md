@@ -25,6 +25,7 @@ Optional arguments:
 ```bash
 npx startserver <port>
 npx startserver <port> json
+npx startserver <port> jsoncompact
 npx startserver <port> xml
 npx startserver <port> accept
 npx startserver .
@@ -35,6 +36,7 @@ Examples:
 ```bash
 npx startserver 2002
 npx startserver 2002 json
+npx startserver 2002 jsoncompact
 npx startserver 2002 xml
 npx startserver 2002 accept
 ```
@@ -45,10 +47,14 @@ npx startserver 2002 accept
   - Same as Force mode `json`.
 - Force mode `json`:
   - Always returns JSON, even if `Accept: application/xml` is sent.
+  - JSON is pretty-printed (indented) for readability.
+- Force mode `jsoncompact`:
+  - Always returns JSON, even if `Accept: application/xml` is sent.
+  - JSON is compact (single-line), matching the original behavior.
 - Force mode `xml`:
   - Always returns XML, even if `Accept: application/json` is sent.
 - Negotiated mode `accept`:
-  - Returns JSON by default.
+  - Returns pretty-printed JSON by default.
   - Returns XML when request includes `Accept: application/xml`.
 
 ## Endpoints

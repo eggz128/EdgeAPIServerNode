@@ -13,7 +13,7 @@ function shouldUseXml(request: FastifyRequest, outputMode: OutputMode): boolean 
     return true;
   }
 
-  if (outputMode === "json") {
+  if (outputMode === "json" || outputMode === "jsoncompact") {
     return false;
   }
 
@@ -42,5 +42,7 @@ export function sendFormatted(
     return;
   }
 
-  void reply.code(statusCode).type("application/json; charset=utf-8").send(payload);
+  void reply.code(statusCode).type("application/json; charset=utf-8").send(
+    outputMode === "jsoncompact" ? JSON.stringify(payload) : JSON.stringify(payload, null, 2)
+  );
 }

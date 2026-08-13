@@ -9,7 +9,7 @@ export interface User {
   userName: string;
 }
 
-export type OutputMode = "accept" | "json" | "xml";
+export type OutputMode = "accept" | "json" | "jsoncompact" | "xml";
 
 export interface ServerOptions {
   port: number;

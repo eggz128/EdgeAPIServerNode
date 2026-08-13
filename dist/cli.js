@@ -17,10 +17,13 @@ function parseOutputMode(value) {
         return "json";
     }
     const normalized = value.toLowerCase();
-    if (normalized === "json" || normalized === "xml" || normalized === "accept") {
+    if (normalized === "json" ||
+        normalized === "jsoncompact" ||
+        normalized === "xml" ||
+        normalized === "accept") {
         return normalized;
     }
-    throw new Error(`Invalid output mode: ${value}. Use json, xml, or accept.`);
+    throw new Error(`Invalid output mode: ${value}. Use json, jsoncompact, xml, or accept.`);
 }
 async function main() {
     const [arg1, arg2] = process.argv.slice(2);
@@ -33,8 +36,9 @@ async function main() {
         console.log(`REST Server Started at http://localhost:${port}/api/products or /api/users`);
         console.log("/api/users requires basic_auth user='edge' password='edgewords'");
         console.log("To change ports, run startserver <port_num>");
-        console.log("Format mode options: json|xml|accept (run startserver <port_num> <mode>)");
-        console.log("Default format mode: json (forced JSON output)");
+        console.log("Format mode options: json|jsoncompact|xml|accept (run startserver <port_num> <mode>)");
+        console.log("Default format mode: json (forced, pretty-printed JSON output)");
+        console.log("Use jsoncompact for the previous compact (single-line) JSON output");
         console.log("Use accept mode to enable Accept-header negotiation for XML output");
         console.log(`File server functions can be used at http://localhost:${port}`);
         console.log("Close Window (Ctrl+C) to stop listening and exit.");

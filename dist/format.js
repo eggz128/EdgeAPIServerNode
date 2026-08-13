@@ -11,7 +11,7 @@ function shouldUseXml(request, outputMode) {
     if (outputMode === "xml") {
         return true;
     }
-    if (outputMode === "json") {
+    if (outputMode === "json" || outputMode === "jsoncompact") {
         return false;
     }
     const acceptHeader = request.headers.accept ?? "";
@@ -29,5 +29,5 @@ function sendFormatted(request, reply, payload, outputMode, statusCode = 200) {
         void reply.code(statusCode).type("application/xml; charset=utf-8").send(xml);
         return;
     }
-    void reply.code(statusCode).type("application/json; charset=utf-8").send(payload);
+    void reply.code(statusCode).type("application/json; charset=utf-8").send(outputMode === "jsoncompact" ? JSON.stringify(payload) : JSON.stringify(payload, null, 2));
 }
