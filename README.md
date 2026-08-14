@@ -6,6 +6,14 @@ Simple REST API demo server ported from the original C# self-hosted version.
 
 - Node.js 22+ (verified on Node 24)
 
+## Run from GitHub
+
+To just run the server as simply and quickly as possible with the default settings use:
+```bash
+npx github:eggz128/EdgeAPIserverNode
+```
+This installs the program in a temporary folder and runs the server from there. Command line options (covered later) can also be passed.
+
 ## Install from GitHub
 
 ```bash
